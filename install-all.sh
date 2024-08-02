@@ -1,6 +1,8 @@
 #!/bin/bash
 
 
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
 if command -v brew &> /dev/null
 then
     echo "brew is already installed"
