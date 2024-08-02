@@ -6,14 +6,25 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        os: [ubuntu-22.04, ubuntu-24.04, self-hosted]
+        os: [self-hosted]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Hello World
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: PWD
+      run: |
+        pwd
+    - name: Install All
+      run: |
+        ./install-all.sh
+    - name: Test w/o brew
       run: |
         echo "Hello World"
         head -n 1 /etc/os-release
         uname -a
+    - name: Test w/ brew
+      run: |
+        /home/linuxbrew/.linuxbrew/bin/brew --version
     # - name: test qemu
     #   uses: pguyot/arm-runner-action@v2
     #   with:
