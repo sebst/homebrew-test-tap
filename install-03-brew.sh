@@ -10,3 +10,5 @@ echo "::group::Install Brew"
 echo "::endgroup::"
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+# sudo ln -s /home/linuxbrew/.linuxbrew/bin/brew /usr/bin/brew
