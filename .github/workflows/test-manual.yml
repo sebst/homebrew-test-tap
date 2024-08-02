@@ -1,0 +1,13 @@
+name: Test Arm
+on:
+    workflow_dispatch:
+
+jobs:
+  test-bot:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Hello World
+      run: echo "Hello World"
