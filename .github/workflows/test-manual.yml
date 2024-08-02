@@ -10,4 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - name: Hello World
-      run: echo "Hello World"
+      run: |
+        echo "Hello World"
+        cat /etc/os-release
+        uname -a
