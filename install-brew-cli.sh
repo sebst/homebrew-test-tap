@@ -38,7 +38,7 @@ echo "::endgroup::"
 
 echo "::group::Ruby Install with asdf"
 sudo apt-get update
-sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
+sudo apt-get install -y --no-install-recommends git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
 
 cd
 git clone https://github.com/excid3/asdf.git ~/.asdf
