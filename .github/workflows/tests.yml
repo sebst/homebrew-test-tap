@@ -32,6 +32,8 @@ jobs:
           whoami
       - run: |
           which -a ruby
+        env:
+          PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
       - run: |
           ./run-test.sh
