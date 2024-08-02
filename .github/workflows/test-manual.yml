@@ -9,11 +9,9 @@ jobs:
         os: [self-hosted]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Set up Homebrew
-      id: set-up-homebrew
-      uses: Homebrew/actions/setup-homebrew@master
     - name: Hello World
       run: |
+        ./install-brew-cli.sh
         echo "Hello World"
         head -n 1 /etc/os-release
         uname -a
