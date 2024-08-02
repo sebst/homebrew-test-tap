@@ -36,7 +36,6 @@ jobs:
           PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
       - run: |
-          sudo ln -s /home/ubuntu/.asdf/installs/ruby/3.3.4/bin/ruby /usr/bin/ruby
           ./run-test.sh
         env:
           PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
