@@ -9,6 +9,8 @@ jobs:
         os: [self-hosted]
     runs-on: ${{ matrix.os }}
     steps:
+    - name: Checkout
+      uses: actions/checkout@v4
     - name: Hello World
       run: |
         ./install-brew-cli.sh
