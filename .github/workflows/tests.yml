@@ -30,6 +30,8 @@ jobs:
           echo $SHELL
       - run: |
           whoami
+      - run: |
+          which -a ruby
 
       - run: |
           ./run-test.sh
