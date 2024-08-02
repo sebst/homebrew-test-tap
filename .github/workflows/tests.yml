@@ -32,22 +32,22 @@ jobs:
           whoami
 
       - run: |
-          export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          export PATH="/home/linuxbrew/.linuxbrew/bin:/home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
           . "/home/ubuntu/.asdf/asdf.sh"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-cleanup-before
 
       - run: |
-          export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          export PATH="/home/linuxbrew/.linuxbrew/bin:/home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
           . "/home/ubuntu/.asdf/asdf.sh"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-setup
 
       - run: |
-          export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          export PATH="/home/linuxbrew/.linuxbrew/bin:/home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
           . "/home/ubuntu/.asdf/asdf.sh"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-tap-syntax
 
       - run: |
-          export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          export PATH="/home/linuxbrew/.linuxbrew/bin:/home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
           . "/home/ubuntu/.asdf/asdf.sh"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
