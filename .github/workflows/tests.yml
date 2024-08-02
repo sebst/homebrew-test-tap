@@ -51,6 +51,11 @@ jobs:
 
       - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae --verbose
         if: github.event_name == 'pull_request'
+        env:
+          PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+          HOMEBREW_PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+          HOMEBREW_USE_RUBY_FROM_PATH: 1
+          HOMEBREW_DEVELOPER: 1
 
 
       # - run: |
