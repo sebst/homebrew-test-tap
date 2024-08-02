@@ -18,6 +18,7 @@ jobs:
       - name: Set up Homebrew
         run: |
           ./install-all.sh
+          export PATH="/home/linuxbrew/.linuxbrew/bin:/home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
       # - name: Cache Homebrew Bundler RubyGems
       #   uses: actions/cache@v4
       #   with:
@@ -29,23 +30,23 @@ jobs:
           echo $SHELL
 
       - run: |
-          . "$HOME/.asdf/asdf.sh"
-          export PATH="$HOME/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          . "/home/ubuntu/.asdf/asdf.sh"
+          export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-cleanup-before
 
       - run: |
-          . "$HOME/.asdf/asdf.sh"
-          export PATH="$HOME/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          . "/home/ubuntu/.asdf/asdf.sh"
+          export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-setup
 
       - run: |
-          . "$HOME/.asdf/asdf.sh"
-          export PATH="$HOME/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          . "/home/ubuntu/.asdf/asdf.sh"
+          export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-tap-syntax
 
       - run: |
-          . "$HOME/.asdf/asdf.sh"
-          export PATH="$HOME/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          . "/home/ubuntu/.asdf/asdf.sh"
+          export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
