@@ -36,6 +36,9 @@ echo "::endgroup::"
 # rbenv install  3.3.4
 
 
+rm -rf ~/.asdf
+
+
 echo "::group::Ruby Install with asdf"
 sudo apt-get update
 sudo apt-get install -y --no-install-recommends git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
@@ -64,4 +67,4 @@ echo "::endgroup::"
 
 
 
-# /bin/bash -c "$(cat install-brew.sh)"
+/bin/bash -c "$(cat install-brew.sh)"
