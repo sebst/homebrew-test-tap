@@ -4,7 +4,7 @@ class Gothanks < Formula
   url "https://github.com/psampaz/gothanks/archive/refs/tags/v0.5.0.tar.gz"
   sha256 "932915b470a3c55edf6b6524d0062a762ae79c2c9b39685aa1a53aae53449265"
   license "MIT"
-  head "https://github.com/psampaz/gothanks.git", branch: "main"
+  head "https://github.com/psampaz/gothanks.git", branch: "master"
 
   depends_on "go" => :build
 
