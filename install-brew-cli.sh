@@ -4,7 +4,7 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
-apt-get install -y --no-install-recommends \
+sudo apt-get install -y --no-install-recommends \
     build-essential \
     curl \
     file \
