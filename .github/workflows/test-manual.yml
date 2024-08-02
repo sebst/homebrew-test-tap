@@ -17,12 +17,15 @@ jobs:
     - name: Install
       run: |
         ./install-brew-cli.sh
-    - name: Test
+    - name: test ruby
+      run: |
+        ruby --version
+    - name: Test w/o brew
       run: |
         echo "Hello World"
         head -n 1 /etc/os-release
         uname -a
-    - name: Test
+    - name: Test w/ brew
       run: |
         brew --version
     # - name: test qemu
