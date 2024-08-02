@@ -7,3 +7,4 @@ source ~/.bashrc
 gem update --system
 echo "::endgroup::"
 
+sudo ln -s /home/ubuntu/.asdf/installs/ruby/3.3.4/bin/ruby /usr/bin/ruby
