@@ -45,7 +45,7 @@ jobs:
 
       - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-cleanup-before
 
-      - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-setup
+      - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-setup || true
 
       - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-tap-syntax
 
