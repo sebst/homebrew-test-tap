@@ -7,7 +7,7 @@ export PATH=/home/linuxbrew/.linuxbrew/bin:/home/ubuntu/.asdf/shims:/home/ubuntu
 # ruby --version
 
 
-brew test-bot --only-cleanup-before
-brew test-bot --only-setup
-brew test-bot --only-tap-syntax
+PATH=$PATH brew test-bot --only-cleanup-before
+PATH=$PATH brew test-bot --only-setup
+PATH=$PATH brew test-bot --only-tap-syntax
 # /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae
