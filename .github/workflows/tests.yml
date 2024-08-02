@@ -26,18 +26,25 @@ jobs:
       #     restore-keys: ${{ matrix.os }}-rubygems-
 
       - run: |
+          echo $SHELL
+
+      - run: |
+          . "$HOME/.asdf/asdf.sh"
           export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.asdf/shims:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-cleanup-before
 
       - run: |
+          . "$HOME/.asdf/asdf.sh"
           export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.asdf/shims:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-setup
 
       - run: |
+          . "$HOME/.asdf/asdf.sh"
           export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.asdf/shims:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-tap-syntax
 
       - run: |
+          . "$HOME/.asdf/asdf.sh"
           export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.asdf/shims:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
