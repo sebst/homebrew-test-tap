@@ -14,15 +14,9 @@ jobs:
     - name: PWD
       run: |
         pwd
-    - name: Install 01
+    - name: Install All
       run: |
-        ./install-01-dependencies.sh
-    - name: Install 02
-      run: |
-        ./install-02-ruby.sh
-    - name: Install 03
-      run: |
-        ./install-03-brew.sh
+        ./install-all.sh
     - name: Test w/o brew
       run: |
         echo "Hello World"
