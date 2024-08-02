@@ -1,5 +1,5 @@
 class Gothanks2 < Formula
-    desc "Automatically star your go.mod Github dependenciels"
+    desc "Automatically star your go.mod Github dependencies"
     homepage "https://github.com/psampaz/gothanks"
     url "https://github.com/psampaz/gothanks/archive/refs/tags/v0.5.0.tar.gz"
     sha256 "932915b470a3c55edf6b6524d0062a762ae79c2c9b39685aa1a53aae53449265"
@@ -17,4 +17,3 @@ class Gothanks2 < Formula
       assert_match "no Github token found", shell_output(bin/"gothanks", 255)
     end
   end
-  
