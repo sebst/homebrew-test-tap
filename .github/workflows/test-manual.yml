@@ -14,3 +14,10 @@ jobs:
         echo "Hello World"
         head -n 1 /etc/os-release
         uname -a
+    - name: test qemu
+      uses: pguyot/arm-runner-action@v2
+      with:
+        commands: |
+          echo "Hello World"
+          head -n 1 /etc/os-release
+          uname -a
