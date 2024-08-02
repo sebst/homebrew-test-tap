@@ -14,12 +14,15 @@ jobs:
     - name: PWD
       run: |
         pwd
-    - name: Install
+    - name: Install 01
       run: |
-        ./install-brew-cli.sh
-    - name: test ruby
+        ./install-01-dependencies.sh
+    - name: Install 02
       run: |
-        ruby --version
+        ./install-02-ruby.sh
+    - name: Install 03
+      run: |
+        ./install-03-brew.sh
     - name: Test w/o brew
       run: |
         echo "Hello World"
