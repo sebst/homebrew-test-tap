@@ -6,6 +6,9 @@ export PATH=/home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.lin
 # brew --version
 # ruby --version
 
+alias ruby="/home/ubuntu/.asdf/shims/ruby"
+alias brew="/home/linuxbrew/.linuxbrew/bin/brew"
+
 
 PATH=$PATH brew test-bot --only-cleanup-before
 PATH=$PATH brew test-bot --only-setup
