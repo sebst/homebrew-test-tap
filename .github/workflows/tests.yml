@@ -49,7 +49,7 @@ jobs:
 
       # - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-tap-syntax
 
-      - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae
+      - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae --verbose
         if: github.event_name == 'pull_request'
 
 
