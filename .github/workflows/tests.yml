@@ -32,23 +32,23 @@ jobs:
           whoami
 
       - run: |
-          . "/home/ubuntu/.asdf/asdf.sh"
           export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          . "/home/ubuntu/.asdf/asdf.sh"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-cleanup-before
 
       - run: |
-          . "/home/ubuntu/.asdf/asdf.sh"
           export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          . "/home/ubuntu/.asdf/asdf.sh"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-setup
 
       - run: |
-          . "/home/ubuntu/.asdf/asdf.sh"
           export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          . "/home/ubuntu/.asdf/asdf.sh"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-tap-syntax
 
       - run: |
-          . "/home/ubuntu/.asdf/asdf.sh"
           export PATH="/home/ubuntu/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
+          . "/home/ubuntu/.asdf/asdf.sh"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
