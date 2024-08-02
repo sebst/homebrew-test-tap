@@ -30,22 +30,22 @@ jobs:
 
       - run: |
           . "$HOME/.asdf/asdf.sh"
-          export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.asdf/shims:$PATH"
+          export PATH="$HOME/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-cleanup-before
 
       - run: |
           . "$HOME/.asdf/asdf.sh"
-          export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.asdf/shims:$PATH"
+          export PATH="$HOME/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-setup
 
       - run: |
           . "$HOME/.asdf/asdf.sh"
-          export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.asdf/shims:$PATH"
+          export PATH="$HOME/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-tap-syntax
 
       - run: |
           . "$HOME/.asdf/asdf.sh"
-          export PATH="/home/linuxbrew/.linuxbrew/bin:$HOME/.asdf/shims:$PATH"
+          export PATH="$HOME/.asdf/shims/:/home/linuxbrew/.linuxbrew/bin/:$PATH"
           /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
