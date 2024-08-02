@@ -24,7 +24,7 @@ jobs:
         uname -a
     - name: Test w/ brew
       run: |
-        brew --version
+        /home/linuxbrew/.linuxbrew/bin/brew --version
     # - name: test qemu
     #   uses: pguyot/arm-runner-action@v2
     #   with:
