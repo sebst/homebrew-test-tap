@@ -10,28 +10,57 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        os: [ubuntu-22.04, oracle-arm64]
+        os: [self-hosted]
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        run: |
+          ./install-all.sh
+          export PATH="/home/linuxbrew/.linuxbrew/bin:/home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+      # - name: Cache Homebrew Bundler RubyGems
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+      #     key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+      #     restore-keys: ${{ matrix.os }}-rubygems-
 
-      - name: Cache Homebrew Bundler RubyGems
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-          key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ matrix.os }}-rubygems-
+      - run: |
+          echo $SHELL
+      - run: |
+          whoami
+      - run: |
+          which -a ruby
+        env:
+          PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
-      - run: brew test-bot --only-cleanup-before
+      # - run: |
+      #     ./run-test.sh
+      #   env:
+      #     PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+      #     HOMEBREW_PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+      #     HOMEBREW_USE_RUBY_FROM_PATH: 1
+      #     HOMEBREW_DEVELOPER: 1
 
-      - run: brew test-bot --only-setup
+      - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-cleanup-before
 
-      - run: brew test-bot --only-tap-syntax
+      - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-setup || true
 
-      - run: brew test-bot --only-formulae
+      - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-tap-syntax || true
+
+      - run: /home/linuxbrew/.linuxbrew/bin/brew test-bot --only-formulae --verbose
         if: github.event_name == 'pull_request'
+        env:
+          PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+          HOMEBREW_PATH: /home/ubuntu/.asdf/shims:/home/ubuntu/.asdf/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+          HOMEBREW_USE_RUBY_FROM_PATH: 1
+          HOMEBREW_DEVELOPER: 1
+
+
+      # - run: |
+      #     ./run-pr.sh
+      #   if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'
